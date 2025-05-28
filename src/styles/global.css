@@ -1,23 +1,29 @@
 @import "tailwindcss";
 @import "./typography.css";
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
 
 @custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
 
 :root,
 html[data-theme="light"] {
   --background: #fdfdfd;
-  --foreground: #282728;
+  --foreground: #000000;
   --accent: #006cac;
   --muted: #e6e6e6;
   --border: #ece9e9;
+  --font-inter: "Inter", sans-serif;
+  --font-roboto: "Roboto", sans-serif;
 }
 
 html[data-theme="dark"] {
-  --background: #212737;
-  --foreground: #eaedf3;
+  --background: #070d10; /* --background: #212737;010104 */
+  --foreground: #e6e7e7; /*#eaedf3*/
   --accent: #ff6b01;
   --muted: #343f60bf;
   --border: #ab4b08;
+  --font-inter: "Inter", sans-serif;
+  --font-roboto: "Roboto";
 }
 
 @theme inline {
@@ -38,7 +44,8 @@ html[data-theme="dark"] {
     @apply overflow-y-scroll scroll-smooth;
   }
   body {
-    @apply flex min-h-svh flex-col bg-background font-mono text-foreground selection:bg-accent/75 selection:text-background;
+    @apply flex min-h-svh flex-col bg-background text-foreground selection:bg-accent/75 selection:text-background;
+    font-family: var(--font-roboto), var(--font-inter);
   }
   a,
   button {
